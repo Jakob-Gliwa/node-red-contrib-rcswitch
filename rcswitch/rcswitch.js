@@ -21,6 +21,10 @@ function RCSwitchNode(config){
 						rcswitch.switchOff(group,parseInt(device));
 						rcswitch.disableTransmit();
 					}
+				} else {
+					rcswitch.enableTransmit(0); // Set WiringPi Pin 0 on OUTPUT (see http://wiringpi.com/pins/ for pin numerotation)
+					rcswitch.send(msg.payload);
+					rcswitch.disableTransmit();		
 				}
 			}
 		}
